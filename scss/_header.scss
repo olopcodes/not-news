@@ -1,0 +1,101 @@
+.daily-fact {
+  background-color: darken($color-cta, 5%);
+  color: $color-white;
+  font-weight: bold;
+
+  h3 {
+    text-transform: capitalize;
+    font-size: $font-size-base;
+    font-weight: bold;
+    color: $color-secondary;
+    text-align: center;
+    // background-color: $color-white;
+    // color: lighten($color-secondary, 20%);
+  }
+
+  p {
+    font-style: italic;
+    font-size: $font-size-small;
+  }
+}
+
+// header =====
+.header {
+  &__main {
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+}
+
+// header button======================
+.menu-btn {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3em;
+  margin-right: 0.3em;
+  cursor: pointer;
+
+  span {
+    display: inline-block;
+    width: 2rem;
+    height: 0.2em;
+    border-radius: 3em;
+    background-color: $color-black;
+
+    &:nth-of-type(2) {
+      width: 1.75rem;
+    }
+
+    &:nth-of-type(3) {
+      width: 1.5rem;
+    }
+  }
+}
+
+// header logo ===================
+.logo {
+  font-size: 2rem;
+  font-family: $font-heading;
+  color: $color-cta;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+// header weather section =================
+.weather {
+  display: none;
+}
+
+// header notification tab ====================
+.notification-tab {
+  display: flex;
+  position: relative;
+
+  p {
+    font-size: 1.5rem;
+    color: $color-cta;
+  }
+
+  span {
+    position: absolute;
+    background-color: $color-secondary;
+    font-size: $font-size-small;
+    font-weight: bold;
+    border-radius: 50%;
+    height: 0.9rem;
+    width: 0.9rem;
+    top: -0.2rem;
+    right: 0;
+    display: grid;
+    place-content: center;
+  }
+}

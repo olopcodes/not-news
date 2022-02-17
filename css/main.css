@@ -1,0 +1,122 @@
+.pb-sm {
+  padding-bottom: 0.5em !important; }
+
+.pt-sm {
+  padding-top: 0.5em !important; }
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0; }
+
+html {
+  scroll-behavior: smooth; }
+
+html,
+body {
+  min-height: 100vh; }
+
+body {
+  font-size: 100%;
+  font-family: "Red Hat Display", sans-serif;
+  line-height: 1.5;
+  color: #1f271b; }
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Libre Baskerville", serif; }
+
+a {
+  text-decoration: none; }
+
+ul,
+li {
+  list-style-type: none; }
+
+.container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1em; }
+
+.daily-fact {
+  background-color: #7936ff;
+  color: #fafffa;
+  font-weight: bold; }
+  .daily-fact h3 {
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #cba328;
+    text-align: center; }
+  .daily-fact p {
+    font-style: italic;
+    font-size: 0.75rem; }
+
+.header__main {
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+.header__left {
+  display: flex;
+  align-items: center; }
+
+.menu-btn {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3em;
+  margin-right: 0.3em;
+  cursor: pointer; }
+  .menu-btn span {
+    display: inline-block;
+    width: 2rem;
+    height: 0.2em;
+    border-radius: 3em;
+    background-color: #1f271b; }
+    .menu-btn span:nth-of-type(2) {
+      width: 1.75rem; }
+    .menu-btn span:nth-of-type(3) {
+      width: 1.5rem; }
+
+.logo {
+  font-size: 2rem;
+  font-family: "Libre Baskerville", serif;
+  color: #8a4fff;
+  font-weight: bold;
+  text-transform: uppercase; }
+
+.weather {
+  display: none; }
+
+.notification-tab {
+  display: flex;
+  position: relative; }
+  .notification-tab p {
+    font-size: 1.5rem;
+    color: #8a4fff; }
+  .notification-tab span {
+    position: absolute;
+    background-color: #cba328;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 50%;
+    height: 0.9rem;
+    width: 0.9rem;
+    top: -0.2rem;
+    right: 0;
+    display: grid;
+    place-content: center; }
+
+.nav__mobile {
+  display: none; }
+
+.nav__main {
+  display: none; }

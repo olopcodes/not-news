@@ -1,0 +1,17 @@
+{
+  "name": "not-news-site",
+  "version": "1.0.0",
+  "description": "A static site that takes design inspiration from gamestop, cnet and gameinformer websites.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node-sass --watch --update --stye=expanded scss -o css",
+    "prod": "node-sass --no-source-map --style=compressed scss -o css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^7.0.1",
+    "sass": "^1.49.7"
+  }
+}
