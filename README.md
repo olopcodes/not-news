@@ -1,6 +1,6 @@
-# A Blackjack Game
+# A Somewhat News Site
 
-A static site that takes design inspiration from gamestop, cnet and gameinformer websites.
+A static site that takes design inspiration from gamespot, cnet and gameinformer websites.
 
 ## Description
 
@@ -19,7 +19,5 @@ A static site that takes design inspiration from gamestop, cnet and gameinformer
 - implementation of a design system
 
 ## Credits
-
-This project began as part of the Scrimba Frontend Career Path. [scrimba.com](https://scrimba.com/)
 
 gamespot, gameinformer, cnet
