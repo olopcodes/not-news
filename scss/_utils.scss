@@ -1,8 +1,21 @@
 // padding
+
 .pb-sm {
-  padding-bottom: 0.5em !important;
+  padding-bottom: 1em !important;
 }
 
 .pt-sm {
+  padding-top: 1em !important;
+}
+
+.pb-xsm {
+  padding-bottom: 0.5em !important;
+}
+
+.pt-xsm {
   padding-top: 0.5em !important;
+}
+
+.p-all-sm {
+  padding: 1em !important;
 }
