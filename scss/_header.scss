@@ -3,40 +3,26 @@
   color: $color-white;
   font-weight: bold;
   text-align: center;
-
+  opacity: 0.88;
   h3 {
     text-transform: capitalize;
     font-size: $font-size-avg;
     font-weight: bold;
     color: lighten($color-cta, 15%);
     margin-bottom: 0.5em;
+    @include mq($media-tab) {
+      margin-bottom: 0;
+      font-size: $font-size-medium;
+    }
   }
 
   p {
     font-style: italic;
     font-size: $font-size-small;
-  }
-}
-
-// header =====
-.header {
-  &__main {
-    border: 1px solid;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  &__left {
-    display: flex;
-    align-items: center;
-    gap: 0.75em;
-  }
-
-  &__right {
-    display: flex;
-    align-items: center;
-    gap: 0.75em;
+    @include mq($media-tab) {
+      letter-spacing: 0.5px;
+      // font-size: $font-size-base;
+    }
   }
 }
 
@@ -48,6 +34,9 @@
   align-items: flex-start;
   gap: 0.3em;
   cursor: pointer;
+  @include mq($media-tab-land) {
+    display: none;
+  }
 
   span {
     display: inline-block;
@@ -66,6 +55,29 @@
   }
 }
 
+// header =====
+.header {
+  &__main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+  }
+}
+
 // header logo ===================
 .logo {
   font-size: 2rem;
@@ -77,8 +89,6 @@
 
 // header weather section =================
 .weather {
-  // display: none;
-  // border: 1px solid;
   display: flex;
   align-items: center;
   font-family: $font-base;
@@ -93,6 +103,9 @@
 
   &__region {
     display: none;
+    @include mq($media-min) {
+      display: block;
+    }
   }
 }
 

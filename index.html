@@ -11,21 +11,17 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Red+Hat+Display:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
     <div class="daily-fact p-all-sm"></div>
-    <nav class="nav__mobile">
-      <div><i class="bx bxs-x-square"></i></div>
-      <ul class="nav__list">
-        <li class="nav-item">
-          <a class="nav__link" href="#">entertainment</a>
-        </li>
-        <li class="nav__item"><a class="nav__link" href="#">tech</a></li>
-        <li class="nav__item"><a class="nav__link" href="#">sports</a></li>
-        <li class="nav__item"><a class="nav__link" href="#">business</a></li>
-      </ul>
-    </nav>
+
     <header class="header__main container pb-sm pt-sm">
       <div class="header__left">
         <div class="menu-btn">
@@ -35,7 +31,7 @@
         </div>
         <a href="./index.html" class="logo">snn</a>
         <nav class="nav__main">
-          <ul>
+          <ul class="nav__list">
             <li class="nav__item">
               <a class="nav__link" href="#">entertainment</a>
             </li>
@@ -59,11 +55,22 @@
           <span>3</span>
         </div>
       </div>
+
+      <nav class="nav__mobile">
+        <ul class="nav__list">
+          <li class="nav-item">
+            <a class="nav__link" href="#">entertainment</a>
+          </li>
+          <li class="nav__item"><a class="nav__link" href="#">tech</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">sports</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">business</a></li>
+        </ul>
+      </nav>
     </header>
     <main>
-      <section class="hero">
-        <div class="hero__item"></div>
-        <div class="hero__item"></div>
+      <section class="hero-main">
+        <div class="hero-main__item">hero one</div>
+        <div class="hero-main__item">hero two</div>
       </section>
       <section class="articles">
         <article>one</article>

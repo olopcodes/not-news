@@ -31,7 +31,11 @@ body {
   font-size: 100%;
   font-family: "Red Hat Display", sans-serif;
   line-height: 1.5;
-  color: #1f271b; }
+  color: #1f271b;
+  transition: 300ms; }
+  @media screen and (min-width: 48em) {
+    body {
+      font-size: 105%; } }
 
 h1,
 h2,
@@ -56,32 +60,24 @@ li {
   background-color: #6f26ff;
   color: #fafffa;
   font-weight: bold;
-  text-align: center; }
+  text-align: center;
+  opacity: 0.88; }
   .daily-fact h3 {
     text-transform: capitalize;
     font-size: 1.25rem;
     font-weight: bold;
     color: #bd9cff;
     margin-bottom: 0.5em; }
+    @media screen and (min-width: 48em) {
+      .daily-fact h3 {
+        margin-bottom: 0;
+        font-size: 1.5rem; } }
   .daily-fact p {
     font-style: italic;
     font-size: 0.75rem; }
-
-.header__main {
-  border: 1px solid;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; }
-
-.header__left {
-  display: flex;
-  align-items: center;
-  gap: 0.75em; }
-
-.header__right {
-  display: flex;
-  align-items: center;
-  gap: 0.75em; }
+    @media screen and (min-width: 48em) {
+      .daily-fact p {
+        letter-spacing: 0.5px; } }
 
 .menu-btn {
   display: flex;
@@ -90,6 +86,9 @@ li {
   align-items: flex-start;
   gap: 0.3em;
   cursor: pointer; }
+  @media screen and (min-width: 60em) {
+    .menu-btn {
+      display: none; } }
   .menu-btn span {
     display: inline-block;
     width: 2rem;
@@ -100,6 +99,23 @@ li {
       width: 1.75rem; }
     .menu-btn span:nth-of-type(3) {
       width: 1.5rem; }
+
+.header__main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative; }
+
+.header__left {
+  display: flex;
+  align-items: center;
+  gap: 0.75em; }
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 0.75em; }
 
 .logo {
   font-size: 2rem;
@@ -118,6 +134,9 @@ li {
     width: 2.5rem; }
   .weather__region {
     display: none; }
+    @media screen and (min-width: 31.25em) {
+      .weather__region {
+        display: block; } }
 
 .notification-tab {
   display: flex;
@@ -139,7 +158,55 @@ li {
     place-content: center; }
 
 .nav__mobile {
-  display: none; }
+  display: none;
+  height: 15rem;
+  flex: 100%;
+  position: relative;
+  border-top: 1px solid #cccdc6;
+  background-color: #fafffa; }
+
+.nav__mobile ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 1em; }
 
 .nav__main {
   display: none; }
+  @media screen and (min-width: 60em) {
+    .nav__main {
+      display: block; } }
+
+.nav__main ul {
+  display: flex;
+  gap: 0.5em; }
+
+.nav__link:link, .nav__link:visited {
+  color: #1f271b;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  position: relative;
+  transition: opacity 500ms ease-in-out; }
+
+.nav__link::after {
+  content: "";
+  position: absolute;
+  transform: translate(-50%, -50%);
+  bottom: -0.8rem;
+  left: 50%;
+  height: 0.55rem;
+  width: 0.55rem;
+  border-radius: 50%;
+  background-color: #8a4fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 500ms ease-in-out; }
+
+.nav__link.active-link, .nav__link:hover, .nav__link:active, .nav__link:focus {
+  color: #681cff; }
+  .nav__link.active-link::after, .nav__link:hover::after, .nav__link:active::after, .nav__link:focus::after {
+    visibility: visible;
+    opacity: 1; }

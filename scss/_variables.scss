@@ -13,8 +13,14 @@ $font-base: "Red Hat Display", sans-serif;
 $font-size-small: 0.75rem;
 $font-size-base: 1rem;
 $font-size-avg: 1.25rem;
-$font-size-large: 1.5rem;
-$font-size-large: 2rem;
-$font-size-xl: 3rem;
+$font-size-medium: 1.5rem;
+$font-size-large: 2.5rem;
+$font-size-xl: 3.5rem;
 
-// margins
+// media queries
+$media-min: 31.25em; // 500px
+$media-tab: 48em; // 768px
+$media-tab-land: 60em; // 960px
+$media-desktop: 75em; // 1200px
+$media-xl: 112.5em; // 1800px
+$media-xxl: 131em; // +2000px

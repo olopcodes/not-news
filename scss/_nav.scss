@@ -1,9 +1,68 @@
 .nav {
   &__mobile {
     display: none;
+    height: 15rem;
+    flex: 100%;
+    position: relative;
+    border-top: 1px solid $color-grey;
+    background-color: $color-white;
+  }
+
+  &__mobile ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 1em;
   }
 
   &__main {
     display: none;
+    @include mq($media-tab-land) {
+      display: block;
+    }
+  }
+
+  &__main ul {
+    display: flex;
+    gap: 0.5em;
+  }
+
+  &__link:link,
+  &__link:visited {
+    color: $color-black;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    position: relative;
+    transition: opacity 500ms ease-in-out;
+  }
+
+  &__link::after {
+    content: "";
+    position: absolute;
+    transform: translate(-50%, -50%);
+    bottom: -0.8rem;
+    left: 50%;
+    height: 0.55rem;
+    width: 0.55rem;
+    border-radius: 50%;
+    background-color: $color-cta;
+    opacity: 0;
+    visibility: hidden;
+    // display: none;
+    transition: opacity 500ms ease-in-out;
+  }
+
+  &__link.active-link,
+  &__link:hover,
+  &__link:active,
+  &__link:focus {
+    color: darken($color-cta, 10%);
+    &::after {
+      visibility: visible;
+      opacity: 1;
+    }
   }
 }

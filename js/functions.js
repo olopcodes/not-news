@@ -7,7 +7,6 @@ const showDailyQuote = () => {
     url: "https://uselessfacts.jsph.pl//random.json?language=en",
     dataType: "json",
     success: function (data) {
-      console.log(data.text);
       $(".daily-fact").html(`
           <h3>daily random fact</h3>
           <p>"${data.text}"</p>
@@ -51,18 +50,33 @@ function getWeather(key, lat, long) {
     dataType: "json",
     success: function (data) {
       $(".weather").html(`
+      <p class="weather__region">${data.location.region}</p>
+
             <img class="weather__img" src="${data.current.condition.icon}" />
             <p class="weather__temp">${Math.floor(
               data.current.temp_f
             )}&#x2109;</p>
-            <p class="weather__region">${data.location.region}</p>
         `);
-      console.log(data.location.region);
-      console.log(data.current.condition.icon);
-      console.log(Math.floor(data.current.temp_f));
     },
     error: function (xhr, status, err) {
       $(".weather").css("display", "none");
     },
+  });
+}
+
+function toggleActiveLink() {
+  $(".nav__link").on("click", (e) => {
+    e.preventDefault();
+    const isLink = $(e.currentTarget).hasClass("nav__link");
+    if (isLink) {
+      $(".nav-link").removeClass("active-class");
+      $(e.currentTarget).toggleClass("active-class");
+    }
+  });
+}
+
+function toggleMobileMenu() {
+  $(".menu-btn").on("click", () => {
+    $(".nav__mobile").slideToggle();
   });
 }
