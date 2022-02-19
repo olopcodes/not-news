@@ -1,0 +1,19 @@
+// hero main index.html ======
+.hero-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+
+  &__item {
+    height: 30rem;
+    margin: 0 0.8em;
+    border-radius: 3px;
+    &:first-of-type {
+      background-color: aqua;
+    }
+
+    &:nth-of-type(2) {
+      background-color: red;
+    }
+  }
+}

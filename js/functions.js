@@ -1,7 +1,7 @@
 // get and show the daily quote
-const showDailyQuote = () => {
+const showDailyQuote = async () => {
   // geting the daily quote
-  $.ajax({
+  await $.ajax({
     method: "GET",
     async: true,
     url: "https://uselessfacts.jsph.pl//random.json?language=en",
@@ -18,7 +18,8 @@ const showDailyQuote = () => {
   });
 };
 
-const getLocation = () => {
+// location to show weather ============================
+const getLocation = async () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       successfullLocation,
@@ -31,19 +32,19 @@ const getLocation = () => {
   }
 };
 
-function successfullLocation(location) {
+async function successfullLocation(location) {
   const long = location.coords.longitude;
   const lat = location.coords.latitude;
 
-  getWeather(apiKeys.weatherApi, lat, long);
+  await getWeather(apiKeys.weatherApi, lat, long);
 }
 
 function errorLocation(err) {
   return "err";
 }
 
-function getWeather(key, lat, long) {
-  $.ajax({
+async function getWeather(key, lat, long) {
+  await $.ajax({
     method: "GET",
     async: true,
     url: `http://api.weatherapi.com/v1/current.json?key=${key}&q=${lat},${long}&aqi=no`,
@@ -64,6 +65,31 @@ function getWeather(key, lat, long) {
   });
 }
 
+// get article
+async function getArticle(idName, category, index) {
+  let i = index - 1;
+  await $.ajax({
+    method: "Get",
+    async: true,
+    url: `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${apiKeys.newsApi}`,
+    dataType: "json",
+    success: function (data) {
+      console.log(data.articles);
+
+      const title = data.articles[i].title;
+      const link = data.articles[i].url;
+      const imgSrc = data.articles[i].urlToImage;
+
+      const article = new Article(idName, title, link, imgSrc);
+      articleData.push(article);
+    },
+    error: function (xhr, status, err) {
+      console.log(Err);
+    },
+  });
+}
+
+// website functions
 function toggleActiveLink() {
   $(".nav__link").on("click", (e) => {
     e.preventDefault();
@@ -80,3 +106,9 @@ function toggleMobileMenu() {
     $(".nav__mobile").slideToggle();
   });
 }
+
+// function renderMainArticle(articleID) {
+//   $(`#${articleID}`).html(`
+//     <img src="${articleData.articleID}" />
+//   `);
+// }
