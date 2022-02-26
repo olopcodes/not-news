@@ -2,19 +2,78 @@
 .hero-main {
   display: flex;
   flex-direction: column;
+  width: 95%;
+  margin: 0 auto;
   gap: 1em;
+  @include mq($media-tab-land) {
+    flex-direction: row;
+    // gap: 0.2em;
+  }
 
   &__item {
-    height: auto;
-    margin: 0 0.8em;
-    border-radius: 3px;
-    border: 1px solid;
+    border-radius: 0.3rem;
+    position: relative;
+    height: 30rem;
+    overflow: hidden;
+    @include mq($media-tab) {
+      height: 35rem;
+    }
+
+    @include mq($media-tab-land) {
+      height: 37rem;
+    }
+
+    @include mq($media-desktop) {
+      // margin: 0 2em;
+      // gap: 0;
+    }
+
     &:first-of-type {
-      // background-color: aqua;
+      @include mq($media-tab-land) {
+        flex: 1;
+      }
+
+      @include mq($media-desktop) {
+        flex: 2;
+      }
     }
 
     &:nth-of-type(2) {
-      // background-color: red;
+      @include mq($media-tab-land) {
+        flex: 1;
+      }
+
+      @include mq($media-desktop) {
+        flex: 1.5;
+      }
+    }
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__text {
+    width: 100%;
+    position: absolute;
+    padding: 1em;
+    bottom: 0;
+    background-color: rgba($color-black, 0.7);
+
+    @include mq($media-min) {
+      padding: 1.5em;
+    }
+
+    @include mq($media-tab-land) {
+      // padding: 2em;
+    }
+
+    .main-title {
+    }
+    .main-desc {
+      display: none;
     }
   }
 }

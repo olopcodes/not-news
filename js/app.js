@@ -4,8 +4,10 @@ $(document).ready(async () => {
   toggleActiveLink();
   toggleMobileMenu();
   await getArticle("hero-item-1", "entertainment", 1);
-  await getArticle("hero-item-2", "sports", 2);
+  await getArticle("hero-item-2", "sports", 1);
 
   renderMainArticle("hero-item-1");
   renderMainArticle("hero-item-2");
+
+  showMainDescription();
 });

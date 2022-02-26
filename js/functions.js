@@ -97,7 +97,8 @@ async function getArticle(idName, category, index) {
         description,
         source,
         date,
-        time
+        time,
+        category
       );
       articleData.push(article);
     },
@@ -159,10 +160,22 @@ function renderMainArticle(articleID) {
         
         <img src="${a.imgSrc}" alt="the image to the article below" class="hero-main__img">
         <div class="hero-main__text">
-          <a href="${a.link}" target="_blank"><h2 class="hero-main__link">${a.title}</h2></a>
-          <p class="hero-main__desc">${a.description}</p>
+          <a href="${a.link}" target="_blank"><h2 class="main-link">${a.title}</h2></a>
+          <p class="main-desc">${a.description}</p>
         </div>
         `);
     }
   }
+}
+
+// show main description paragraph when main hero article hover
+function showMainDescription() {
+  $(".hero-main__item").hover(
+    (e) => {
+      $(`#${e.currentTarget.id} .main-desc`).show("500");
+    },
+    (e) => {
+      $(`#${e.currentTarget.id} .main-desc`).hide("500");
+    }
+  );
 }

@@ -37,7 +37,8 @@ class Article {
     description,
     source,
     date,
-    time
+    time,
+    category
   ) {
     this.idName = idName;
     this.title = title;
@@ -48,5 +49,6 @@ class Article {
     this.source = source;
     this.date = date;
     this.time = time;
+    this.category = category;
   }
 }
