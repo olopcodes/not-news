@@ -5,6 +5,7 @@ $(document).ready(async () => {
   toggleMobileMenu();
   await getArticle("hero-item-1", "entertainment", 1);
   await getArticle("hero-item-2", "sports", 2);
-  console.log(articleData);
-  // console.log(d);
+
+  renderMainArticle("hero-item-1");
+  renderMainArticle("hero-item-2");
 });

@@ -66,6 +66,7 @@ async function getWeather(key, lat, long) {
 }
 
 // get article
+
 async function getArticle(idName, category, index) {
   let i = index - 1;
   await $.ajax({
@@ -74,18 +75,68 @@ async function getArticle(idName, category, index) {
     url: `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${apiKeys.newsApi}`,
     dataType: "json",
     success: function (data) {
-      console.log(data.articles);
-
+      console.log(data.articles[0]);
+      if (!data.articles[i].urlToImage || !data.articles[i].author) {
+        i = 3;
+      }
       const title = data.articles[i].title;
+      const author = data.articles[i].author;
       const link = data.articles[i].url;
       const imgSrc = data.articles[i].urlToImage;
-
-      const article = new Article(idName, title, link, imgSrc);
+      const description = data.articles[i].description;
+      const source = data.articles[i].source.name;
+      const date = formatDate(data.articles[i].publishedAt);
+      // console.log(date);
+      const time = showTime(hours, data.articles[i].publishedAt);
+      console.log("time", time);
+      const article = new Article(
+        idName,
+        title,
+        author,
+        link,
+        imgSrc,
+        description,
+        source
+      );
       articleData.push(article);
     },
     error: function (xhr, status, err) {
       console.log(Err);
     },
+  });
+}
+
+function formatDate(date) {
+  const month = months[new Date(date).getMonth()];
+  const day = new Date(date).getDate();
+  const year = new Date(date).getFullYear();
+  return `${month} ${day}, ${year}`;
+}
+
+function formatTime(obj, data) {
+  let hourFound = true;
+  const hours = new Date(data).getHours();
+  const mins = new Date(data).getMinutes();
+  while (!hourFound) {
+    $.each(obj, (key, val) => {
+      const n = Number(key);
+      if (hours === n) {
+        hourFound = true;
+        return `${val}:${mins}pm`;
+      } else {
+        hourFound = true;
+        return `${hours}:${mins}am`;
+      }
+    });
+  }
+}
+
+function showTime(hours, data) {
+  const hour = new Date(data).getHours();
+  const mins = new Date(data).getMinutes();
+  return hours.filter((el) => {
+    let t = el[hour][0];
+    return t;
   });
 }
 
@@ -107,8 +158,14 @@ function toggleMobileMenu() {
   });
 }
 
-// function renderMainArticle(articleID) {
-//   $(`#${articleID}`).html(`
-//     <img src="${articleData.articleID}" />
-//   `);
-// }
+function renderMainArticle(articleID) {
+  for (let a of articleData) {
+    if (a.idName === articleID) {
+      $(`#${articleID}`).html(`
+        <img src="${a.imgSrc}" alt="the image to the article below" class="hero-main__img">
+        <a href="${a.link}" target="_blank"><h2 class="heading-main-title">${a.title}</h2></a>
+        <p>${a.description}</p>
+        `);
+    }
+  }
+}

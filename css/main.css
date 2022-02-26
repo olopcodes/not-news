@@ -56,6 +56,10 @@ li {
   margin: 0 auto;
   padding: 0 1em; }
 
+img {
+  max-width: 100%;
+  display: block; }
+
 .nav__mobile {
   display: none;
   height: 15rem;
@@ -214,12 +218,9 @@ li {
 .hero-main {
   display: flex;
   flex-direction: column;
-  gap: 2em; }
+  gap: 1em; }
   .hero-main__item {
-    height: 30rem;
+    height: auto;
     margin: 0 0.8em;
-    border-radius: 3px; }
-    .hero-main__item:first-of-type {
-      background-color: aqua; }
-    .hero-main__item:nth-of-type(2) {
-      background-color: red; }
+    border-radius: 3px;
+    border: 1px solid; }

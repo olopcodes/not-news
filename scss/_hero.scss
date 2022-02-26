@@ -2,18 +2,19 @@
 .hero-main {
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 1em;
 
   &__item {
-    height: 30rem;
+    height: auto;
     margin: 0 0.8em;
     border-radius: 3px;
+    border: 1px solid;
     &:first-of-type {
-      background-color: aqua;
+      // background-color: aqua;
     }
 
     &:nth-of-type(2) {
-      background-color: red;
+      // background-color: red;
     }
   }
 }
