@@ -43,6 +43,7 @@ function errorLocation(err) {
   return "err";
 }
 
+// get weather from api
 async function getWeather(key, lat, long) {
   await $.ajax({
     method: "GET",
@@ -65,8 +66,7 @@ async function getWeather(key, lat, long) {
   });
 }
 
-// get article
-
+// get article from api
 async function getArticle(idName, category, index) {
   let i = index - 1;
   await $.ajax({
@@ -130,7 +130,9 @@ function formatTime(hours, data) {
   }
 }
 
-// website functions
+// website functions =====================
+
+// adding active class to links
 function toggleActiveLink() {
   $(".nav__link").on("click", (e) => {
     e.preventDefault();
@@ -142,19 +144,24 @@ function toggleActiveLink() {
   });
 }
 
+// show and hide mobile menu
 function toggleMobileMenu() {
   $(".menu-btn").on("click", () => {
     $(".nav__mobile").slideToggle();
   });
 }
 
+// render the main hero articles on the page
 function renderMainArticle(articleID) {
   for (let a of articleData) {
     if (a.idName === articleID) {
       $(`#${articleID}`).html(`
+        
         <img src="${a.imgSrc}" alt="the image to the article below" class="hero-main__img">
-        <a href="${a.link}" target="_blank"><h2 class="heading-main-title">${a.title}</h2></a>
-        <p>${a.description}</p>
+        <div class="hero-main__text">
+          <a href="${a.link}" target="_blank"><h2 class="hero-main__link">${a.title}</h2></a>
+          <p class="hero-main__desc">${a.description}</p>
+        </div>
         `);
     }
   }
