@@ -86,9 +86,8 @@ async function getArticle(idName, category, index) {
       const description = data.articles[i].description;
       const source = data.articles[i].source.name;
       const date = formatDate(data.articles[i].publishedAt);
-      // console.log(date);
-      const time = showTime(hours, data.articles[i].publishedAt);
-      console.log("time", time);
+      const time = formatTime(hours, data.articles[i].publishedAt);
+
       const article = new Article(
         idName,
         title,
@@ -96,7 +95,9 @@ async function getArticle(idName, category, index) {
         link,
         imgSrc,
         description,
-        source
+        source,
+        date,
+        time
       );
       articleData.push(article);
     },
@@ -113,31 +114,20 @@ function formatDate(date) {
   return `${month} ${day}, ${year}`;
 }
 
-function formatTime(obj, data) {
-  let hourFound = true;
-  const hours = new Date(data).getHours();
-  const mins = new Date(data).getMinutes();
-  while (!hourFound) {
-    $.each(obj, (key, val) => {
-      const n = Number(key);
-      if (hours === n) {
-        hourFound = true;
-        return `${val}:${mins}pm`;
-      } else {
-        hourFound = true;
-        return `${hours}:${mins}am`;
-      }
-    });
-  }
-}
-
-function showTime(hours, data) {
+function formatTime(hours, data) {
   const hour = new Date(data).getHours();
-  const mins = new Date(data).getMinutes();
-  return hours.filter((el) => {
-    let t = el[hour][0];
-    return t;
-  });
+  let mins = new Date(data).getMinutes();
+  const arr = hours.filter((el) => el[hour]);
+
+  if (String(mins).length === 1) {
+    mins = `0${mins}`;
+  }
+
+  if (arr.length === 0) {
+    return `${hour}:${mins}am`;
+  } else {
+    return `${arr[0][hour]}:${mins}pm`;
+  }
 }
 
 // website functions

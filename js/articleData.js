@@ -28,7 +28,17 @@ const hours = [
   { 24: 12 },
 ];
 class Article {
-  constructor(idName, title, author, link, imgSrc, description, source) {
+  constructor(
+    idName,
+    title,
+    author,
+    link,
+    imgSrc,
+    description,
+    source,
+    date,
+    time
+  ) {
     this.idName = idName;
     this.title = title;
     this.author = author;
@@ -36,5 +46,7 @@ class Article {
     this.imgSrc = imgSrc;
     this.description = description;
     this.source = source;
+    this.date = date;
+    this.time = time;
   }
 }
