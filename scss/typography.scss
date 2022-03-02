@@ -26,3 +26,34 @@
     font-size: $font-size-base;
   }
 }
+
+.section-heading {
+  color: $color-cta;
+  text-transform: capitalize;
+  font-size: $font-size-medium;
+}
+
+.article-title {
+  font-size: $font-size-base;
+  color: darken($color-cta, 10%);
+  text-transform: capitalize;
+  margin-bottom: 0.5em;
+}
+
+.article-desc {
+  font-size: $font-size-small;
+}
+
+.article-author,
+.article-publish-date,
+.article-source {
+  margin-bottom: 0.2em;
+  span {
+    font-style: italic;
+    color: $color-secondary;
+  }
+}
+
+.article-source {
+  margin-bottom: 1em;
+}

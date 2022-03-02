@@ -52,3 +52,9 @@ img {
   max-width: 100%;
   display: block;
 }
+
+section {
+  &:not(&:nth-of-type(1)) {
+    padding: 5em 0;
+  }
+}

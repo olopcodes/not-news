@@ -1,0 +1,16 @@
+.btn {
+  cursor: pointer;
+  text-transform: capitalize;
+  background-color: $color-cta;
+  color: $color-white;
+  border-radius: 0.3em;
+  font-weight: 700;
+  padding: 0.3em 1em;
+  font-size: $font-size-small;
+
+  &:hover,
+  &:active,
+  &:focus {
+    opacity: 0.8;
+  }
+}
