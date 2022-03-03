@@ -31,17 +31,28 @@
   color: $color-cta;
   text-transform: capitalize;
   font-size: $font-size-medium;
+  @include mq($media-tab-land) {
+    font-size: $font-size-in-between;
+  }
 }
 
 .article-title {
   font-size: $font-size-base;
-  color: darken($color-cta, 10%);
+  color: $color-cta;
   text-transform: capitalize;
   margin-bottom: 0.5em;
+  @include mq($media-tab-land) {
+    font-size: $font-size-avg;
+  }
 }
-
+.article-author,
+.article-publish-date,
+.article-source,
 .article-desc {
   font-size: $font-size-small;
+  @include mq($media-tab-land) {
+    font-size: $font-size-base;
+  }
 }
 
 .article-author,
@@ -54,6 +65,12 @@
   }
 }
 
+.article-author,
+.article-publish-date {
+  display: inline-block;
+}
+
 .article-source {
-  margin-bottom: 1em;
+  text-transform: capitalize;
+  margin-bottom: 2em;
 }

@@ -168,6 +168,45 @@ function renderMainArticle(articleID) {
   }
 }
 
+// render latest articles
+function renderLatestArticles() {
+  const latestArticles = articleData.slice(2, 7);
+  let html = ``;
+  // const latestStories = ;
+  $.each(latestArticles, (index, article) => {
+    html += `
+    <div class="latest__story">
+    <div class="latest__category"><p>${article.category}</p></div>
+    <img
+      class="latest__img"
+      src="${article.imgSrc}"
+      alt="image from article"
+    />
+    <div class="latest__heading">
+      <h3 class="article-title">
+        ${article.title}
+      </h3>
+      <p class="article-desc">
+        ${article.description}
+      </p>
+    </div>
+    <div class="latest__credit">
+      <p class="article-author">by <span>${article.author}</span></p>
+      <p class="article-publish-date">
+        on <span>${article.date}, ${article.time}</span>
+      </p>
+      <p class="article-source">
+        article source: <span>${article.source}</span>
+      </p>
+      <a href="${article.link}" target="_blank" class="btn">read more</a>
+    </div>
+  </div>
+    `;
+  });
+
+  $(".latest__stories").html(html);
+}
+
 // show main description paragraph when main hero article hover
 function showMainDescription() {
   $(".hero-main__item").hover(

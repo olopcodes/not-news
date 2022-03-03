@@ -2,15 +2,20 @@
   &__stories {
     margin: 2.5em 0;
     display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
+    flex-direction: column;
+    gap: 4em;
+    @include mq($media-tab) {
+      flex-direction: row;
+      gap: 1.5em;
+    }
   }
 
   &__story {
-    background-color: rgba($color-white, 15%);
-    margin-bottom: 2em;
-    flex: 45%;
-    // background-color: red;
+    // background-color: rgba($color-white, 15%);
+    // padding: 1em 0;
+    @include mq($media-tab-land) {
+      width: 25%;
+    }
   }
 
   &__category {
@@ -27,6 +32,12 @@
 
   &__img {
     border-radius: 0.3em;
+    width: 100%;
+    object-fit: cover;
+    height: 15rem;
+    @include mq($media-tab-land) {
+      height: 20rem;
+    }
   }
 
   &__heading {

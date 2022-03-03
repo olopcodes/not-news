@@ -5,12 +5,15 @@
   color: $color-white;
   border-radius: 0.3em;
   font-weight: 700;
-  padding: 0.3em 1em;
+  padding: 0.7em 1em;
   font-size: $font-size-small;
+  border: 1px solid $color-cta;
+  transition: 0.15s linear;
 
   &:hover,
   &:active,
   &:focus {
-    opacity: 0.8;
+    color: $color-cta;
+    background-color: $color-white;
   }
 }
