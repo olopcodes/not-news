@@ -1,6 +1,6 @@
 $(document).ready(async () => {
   await getLocation();
-  await showDailyQuote();
+  await getRandomFact();
   toggleActiveLink();
   toggleMobileMenu();
 
@@ -21,4 +21,6 @@ $(document).ready(async () => {
 
   // rendering the latest articles
   renderLatestArticles();
+
+  await getRandomWisdomQuote();
 });

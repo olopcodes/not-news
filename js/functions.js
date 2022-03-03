@@ -1,5 +1,5 @@
 // get and show the daily quote
-const showDailyQuote = async () => {
+const getRandomFact = async () => {
   // geting the daily quote
   await $.ajax({
     method: "GET",
@@ -43,7 +43,7 @@ function errorLocation(err) {
   return "err";
 }
 
-// get weather from api
+// get weather from api ========================================
 async function getWeather(key, lat, long) {
   await $.ajax({
     method: "GET",
@@ -66,7 +66,23 @@ async function getWeather(key, lat, long) {
   });
 }
 
-// get article from api
+async function getRandomWisdomQuote() {
+  $.ajax({
+    type: "GET",
+    url: "https://api.quotable.io/random?tags=wisdom",
+    data: "data",
+    dataType: "json",
+    success: function (response) {
+      console.log(response.content);
+      console.log(response.author);
+    },
+    error: function (x, s, err) {
+      console.log(err);
+    },
+  });
+}
+
+// get article from api ==================================================
 async function getArticle(idName, category, index) {
   let i = index - 1;
   await $.ajax({
