@@ -35,9 +35,6 @@
     width: 100%;
     object-fit: cover;
     height: 15rem;
-    @include mq($media-tab-land) {
-      height: 20rem;
-    }
   }
 
   &__heading {

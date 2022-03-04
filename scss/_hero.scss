@@ -20,7 +20,7 @@
     }
 
     @include mq($media-tab-land) {
-      height: 37rem;
+      // height: 37rem;
     }
 
     @include mq($media-desktop) {

@@ -48,7 +48,9 @@ a {
 
 ul,
 li {
-  list-style-type: none; }
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
 
 .container {
   max-width: 80em;
@@ -86,11 +88,6 @@ section:not(section:nth-of-type(1)) {
   letter-spacing: 1px;
   margin-bottom: 0.5em;
   font-size: 1.25rem; }
-  @media screen and (min-width: 48em) {
-    .main-link,
-    .main-link:link,
-    .main-link:visited {
-      font-size: 1.5rem; } }
   .main-link:hover, .main-link:active, .main-link:focus,
   .main-link:link:hover,
   .main-link:link:active,
@@ -107,7 +104,7 @@ section:not(section:nth-of-type(1)) {
   letter-spacing: 0.3px; }
   @media screen and (min-width: 48em) {
     .main-desc {
-      font-size: 1rem; } }
+      font-size: 0.9rem; } }
 
 .section-heading {
   color: #8a4fff;
@@ -124,19 +121,13 @@ section:not(section:nth-of-type(1)) {
   margin-bottom: 0.5em; }
   @media screen and (min-width: 60em) {
     .article-title {
-      font-size: 1.25rem; } }
+      font-size: 1.1rem; } }
 
 .article-author,
 .article-publish-date,
 .article-source,
 .article-desc {
   font-size: 0.85rem; }
-  @media screen and (min-width: 60em) {
-    .article-author,
-    .article-publish-date,
-    .article-source,
-    .article-desc {
-      font-size: 1rem; } }
 
 .article-author,
 .article-publish-date,
@@ -329,9 +320,6 @@ section:not(section:nth-of-type(1)) {
       .hero-main__item {
         height: 35rem; } }
     @media screen and (min-width: 60em) {
-      .hero-main__item {
-        height: 37rem; } }
-    @media screen and (min-width: 60em) {
       .hero-main__item:first-of-type {
         flex: 1; } }
     @media screen and (min-width: 75em) {
@@ -389,12 +377,41 @@ section:not(section:nth-of-type(1)) {
   width: 100%;
   object-fit: cover;
   height: 15rem; }
-  @media screen and (min-width: 60em) {
-    .latest__img {
-      height: 20rem; } }
 
 .latest__heading {
   margin: 1em 0; }
 
 .latest__credit {
   font-size: 0.85rem; }
+
+.highlight {
+  padding-top: 0 !important; }
+  .highlight__tabs {
+    display: flex;
+    gap: 2em;
+    align-items: center;
+    width: 100%;
+    text-transform: capitalize;
+    font-family: "Libre Baskerville", serif;
+    padding: 1em;
+    margin-bottom: 1em; }
+  .highlight__tab {
+    padding: 0.5em 0.8em;
+    font-weight: 700; }
+    .highlight__tab a {
+      cursor: pointer; }
+    .highlight__tab.active-tab {
+      background-color: #cba328; }
+  .highlight__article {
+    display: flex;
+    align-items: flex-start;
+    gap: 1em; }
+    .highlight__article:not(:last-of-type) {
+      margin-bottom: 2em;
+      padding-bottom: 0.3em;
+      border-bottom: 1px solid #cccdc6; }
+  .highlight__article .article-title:hover {
+    text-decoration: underline; }
+  .highlight__img {
+    width: 5rem;
+    height: 5rem; }
