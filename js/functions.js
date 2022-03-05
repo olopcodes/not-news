@@ -91,14 +91,25 @@ async function getArticle(idName, category, index) {
     url: `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${apiKeys.newsApi}`,
     dataType: "json",
     success: function (data) {
+      let imgSrc = "";
+      let author = "";
       console.log(data.articles[0]);
-      if (!data.articles[i].urlToImage || !data.articles[i].author) {
-        i = 3;
+
+      try {
+        data.articles[i].urlToImage;
+      } catch (err) {
+        imgSrc = "./images/default-image.jpeg";
+      }
+
+      try {
+        data.articles[i].author;
+      } catch (err) {
+        author = "unknown author";
       }
       const title = data.articles[i].title;
-      const author = data.articles[i].author;
+      author = data.articles[i].author;
       const link = data.articles[i].url;
-      const imgSrc = data.articles[i].urlToImage;
+      imgSrc = data.articles[i].urlToImage;
       const description = data.articles[i].description;
       const source = data.articles[i].source.name;
       const date = formatDate(data.articles[i].publishedAt);
@@ -119,7 +130,7 @@ async function getArticle(idName, category, index) {
       articleData.push(article);
     },
     error: function (xhr, status, err) {
-      console.log(Err);
+      console.log(err);
     },
   });
 }
@@ -147,6 +158,12 @@ function formatTime(hours, data) {
   }
 }
 
+function renderHighlightedArticles(name) {
+  const filteredCategory = articleData.filter(
+    (article) => article.idName === name
+  );
+  console.log(filteredCategory);
+}
 // website functions =====================
 
 // adding active class to links
