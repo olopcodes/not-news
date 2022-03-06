@@ -74,3 +74,33 @@
   text-transform: capitalize;
   margin-bottom: 2em;
 }
+
+.quote-desc {
+  position: relative;
+  margin-bottom: 1em;
+  &::first-letter {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: $font-size-in-between;
+    color: $color-secondary;
+  }
+  // border: 1px solid;
+  // text-align:
+
+  &::before {
+    content: '"';
+    position: absolute;
+    top: -4.5rem;
+    left: -0.5rem;
+    color: inherit;
+    font-size: 10em;
+    opacity: 0.3;
+  }
+}
+
+.quote-author {
+  text-transform: capitalize;
+  color: $color-secondary;
+  font-style: italic;
+  font-size: $font-size-small;
+}

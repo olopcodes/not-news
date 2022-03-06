@@ -66,6 +66,7 @@ async function getWeather(key, lat, long) {
   });
 }
 
+// get a wisdom quote from the api
 async function getRandomWisdomQuote() {
   $.ajax({
     type: "GET",
@@ -73,8 +74,7 @@ async function getRandomWisdomQuote() {
     data: "data",
     dataType: "json",
     success: function (response) {
-      console.log(response.content);
-      console.log(response.author);
+      renderQuote(response);
     },
     error: function (x, s, err) {
       console.log(err);
@@ -93,7 +93,7 @@ async function getArticle(idName, category, index) {
     success: function (data) {
       let imgSrc = "";
       let author = "";
-      console.log(data.articles[0]);
+      // console.log(data.articles[0]);
 
       try {
         data.articles[i].urlToImage;
@@ -250,7 +250,7 @@ function renderHighlightedArticles(name) {
     html += `
      <li class="highlight__article">
      <a class="article-title article-title-link"
-       hre="${article.link}">${article.title}</a
+       href="${article.link}" target="_blank">${article.title}</a
      >
      <img
        class="highlight__img"
@@ -266,6 +266,13 @@ function renderHighlightedArticles(name) {
   } else {
     $("#highlight-article-container").html(html);
   }
+}
+
+function renderQuote(data) {
+  $(".highlight__quote").html(`
+    <p class="quote-desc">${data.content}</p>
+    <h4 class="quote-author">${data.author}</h4>
+  `);
 }
 
 // show main description paragraph when main hero article hover
