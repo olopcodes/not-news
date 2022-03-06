@@ -286,3 +286,8 @@ function showMainDescription() {
     }
   );
 }
+
+// remove preloader
+function removePreLoader() {
+  $(".preloader").css("display", "none");
+}

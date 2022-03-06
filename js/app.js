@@ -1,4 +1,6 @@
 $(document).ready(async () => {
+  const removeLoader = setTimeout(removePreLoader, `1500`);
+
   await getLocation();
   await getRandomFact();
   toggleActiveLink();

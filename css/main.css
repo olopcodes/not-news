@@ -1,3 +1,64 @@
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #cccdc6;
+  opacity: 1; }
+  .preloader h2 {
+    text-align: center;
+    text-transform: capitalize;
+    margin-top: 5em;
+    text-decoration: underline;
+    animation: blink 2s linear infinite; }
+  .preloader .load {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*change these sizes to fit into your project*/
+    width: 90px;
+    height: 90px; }
+  .preloader .load hr {
+    border: 0;
+    margin: 0;
+    width: 40%;
+    height: 40%;
+    position: absolute;
+    border-radius: 50%;
+    animation: spin 2s ease infinite; }
+  .preloader .load :first-child {
+    background: #8a4fff;
+    animation-delay: -1.5s; }
+  .preloader .load :nth-child(2) {
+    background: #cba328;
+    animation-delay: -1s; }
+  .preloader .load :nth-child(3) {
+    background: #fafffa;
+    animation-delay: -0.5s; }
+  .preloader .load :last-child {
+    background: #1f271b; }
+
+@keyframes spin {
+  0%,
+  100% {
+    transform: translate(0); }
+  25% {
+    transform: translate(160%); }
+  50% {
+    transform: translate(160%, 160%); }
+  75% {
+    transform: translate(0, 160%); } }
+
+@keyframes blink {
+  0% {
+    opacity: 0; }
+  75% {
+    opacity: 0.75; }
+  100% {
+    opacity: 1; } }
+
 .pb-sm {
   padding-bottom: 1em !important; }
 
