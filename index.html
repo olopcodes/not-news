@@ -22,7 +22,7 @@
   <body>
     <div class="daily-fact p-all-sm"></div>
 
-    <header class="header__main container pb-sm pt-sm">
+    <header id="#header" class="header__main container pb-sm pt-sm">
       <div class="header__left">
         <div class="menu-btn">
           <span></span>
@@ -33,14 +33,16 @@
         <nav class="nav__main">
           <ul class="nav__list">
             <li class="nav__item">
-              <a class="nav__link" href="#">entertainment</a>
+              <a class="nav__link" href="#entertainment">entertainment</a>
             </li>
             <li class="nav__item">
-              <a class="nav__link" href="#">technology</a>
+              <a class="nav__link" href="#tech">technology</a>
             </li>
-            <li class="nav__item"><a class="nav__link" href="#">sports</a></li>
             <li class="nav__item">
-              <a class="nav__link" href="#">science</a>
+              <a class="nav__link" href="#sports">sports</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="#science">science</a>
             </li>
           </ul>
         </nav>
@@ -58,13 +60,17 @@
       <nav class="nav__mobile">
         <ul class="nav__list">
           <li class="nav-item">
-            <a class="nav__link" href="#">entertainment</a>
+            <a class="nav__link" href="#entertainment">entertainment</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link" href="#">technology</a>
+            <a class="nav__link" href="#tech">technology</a>
           </li>
-          <li class="nav__item"><a class="nav__link" href="#">sports</a></li>
-          <li class="nav__item"><a class="nav__link" href="#">science</a></li>
+          <li class="nav__item">
+            <a class="nav__link" href="#sports">sports</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#science">science</a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -113,11 +119,13 @@
           <div class="highlight__content">
             <div id="tabs">
               <ul class="highlight__tabs">
-                <li class="tab highlight__tab active-tab">
-                  <a href="#tabs-1">popular</a>
+                <li class="tab highlight__tab highlight__tab">
+                  <a class="highlight-tab highlight-tab-active" href="#tabs-1"
+                    >popular</a
+                  >
                 </li>
                 <li class="tab highlight__tab">
-                  <a href="#tabs-2">general</a>
+                  <a class="highlight-tab" href="#tabs-2">general</a>
                 </li>
               </ul>
               <div id="tabs-1">
@@ -143,13 +151,86 @@
           </div>
         </div>
       </section>
-      <section class="featured">
-        <article>feature</article>
-        <div class="articles_wrapper">
-          <article>one</article>
-          <article>two</article>
-          <article>three</article>
-          <article>four</article>
+      <section id="entertainment" class="category">
+        <div class="container">
+          <h2 class="section-heading">Entertainment</h2>
+          <div class="category__stories">
+            <a class="category__story">
+              <div class="category__story-img-box">
+                <img
+                  src="https://placeimg.com/640/480/animals"
+                  alt="article image"
+                />
+              </div>
+
+              <h3 class="article-title" href="link">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,
+                repellat dolores facere maiores et a
+              </h3>
+            </a>
+            <a class="category__story">
+              <div class="category__story-img-box">
+                <img
+                  src="https://placeimg.com/640/480/animals"
+                  alt="article image"
+                />
+              </div>
+
+              <h3 class="article-title" href="link">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,
+                repellat dolores facere maiores et a
+              </h3>
+            </a>
+
+            <a class="category__story">
+              <div class="category__story-img-box">
+                <img
+                  src="https://placeimg.com/640/480/animals"
+                  alt="article image"
+                />
+              </div>
+
+              <h3 class="article-title" href="link">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,
+                repellat dolores facere maiores et a
+              </h3>
+            </a>
+
+            <a class="category__story">
+              <div class="category__story-img-box">
+                <img
+                  src="https://placeimg.com/640/480/animals"
+                  alt="article image"
+                />
+              </div>
+
+              <h3 class="article-title" href="link">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,
+                repellat dolores facere maiores et a
+              </h3>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="tech" class="category">
+        <div class="container">
+          <h2 class="section-heading">technology</h2>
+          <div class="category__stories">
+            <a class="category__story">
+              <div class="category__story-img-box">
+                <img
+                  src="https://placeimg.com/640/480/animals"
+                  alt="article image"
+                />
+              </div>
+
+              <h3 class="article-title" href="link">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,
+                repellat dolores facere maiores et a
+              </h3>
+            </a>
+          </div>
         </div>
       </section>
       <div class="quote-day">positive quote of day</div>

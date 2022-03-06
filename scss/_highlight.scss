@@ -28,25 +28,13 @@
 
   &__tabs {
     display: flex;
-    gap: 2em;
+    gap: 1.5em;
     align-items: center;
     width: 100%;
     text-transform: capitalize;
     font-family: $font-heading;
     margin-bottom: 2em;
     // background-color: orange;
-  }
-
-  &__tab {
-    padding: 0.5em 0.8em;
-    font-weight: 700;
-    a {
-      cursor: pointer;
-    }
-
-    &.active-tab {
-      background-color: $color-secondary;
-    }
   }
 
   &__article {
@@ -119,6 +107,7 @@
 
   &__quote {
     position: absolute;
+
     transform: translate(-50%, -50%);
     left: 50%;
     top: 30%;

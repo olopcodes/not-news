@@ -75,25 +75,38 @@
   margin-bottom: 2em;
 }
 
+.highlight-tab {
+  color: black;
+  font-weight: 700;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.3rem;
+  &:hover,
+  &:active {
+    color: $color-cta;
+  }
+
+  &-active {
+    background-color: $color-secondary;
+    color: $color-cta;
+  }
+}
+
 .quote-desc {
   position: relative;
   margin-bottom: 1em;
   &::first-letter {
-    text-transform: uppercase;
     font-weight: 700;
-    font-size: $font-size-in-between;
+    font-size: $font-size-avg;
     color: $color-secondary;
   }
-  // border: 1px solid;
-  // text-align:
 
   &::before {
     content: '"';
     position: absolute;
-    top: -4.5rem;
-    left: -0.5rem;
+    top: -4rem;
+    left: -1rem;
     color: inherit;
-    font-size: 10em;
+    font-size: 8rem;
     opacity: 0.3;
   }
 }

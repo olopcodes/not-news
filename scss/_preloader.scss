@@ -4,8 +4,9 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: $color-grey;
+  background-color: $color-white;
   opacity: 1;
+  z-index: 100;
 
   h2 {
     text-align: center;
@@ -39,11 +40,11 @@
     animation-delay: -1.5s;
   }
   .load :nth-child(2) {
-    background: $color-secondary;
+    background: $color-grey;
     animation-delay: -1s;
   }
   .load :nth-child(3) {
-    background: $color-white;
+    background: $color-secondary;
     animation-delay: -0.5s;
   }
   .load :last-child {

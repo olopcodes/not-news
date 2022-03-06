@@ -86,7 +86,7 @@ async function getRandomWisdomQuote() {
 async function getArticle(idName, category, index) {
   let i = index - 1;
   await $.ajax({
-    method: "Get",
+    method: "GET",
     async: true,
     url: `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${apiKeys.newsApi}`,
     dataType: "json",
@@ -135,6 +135,47 @@ async function getArticle(idName, category, index) {
   });
 }
 
+// getting news for specific categories in guardian api
+async function getCategoryArticle(idName, category, index) {
+  let i = index - 1;
+  await $.ajax({
+    method: "GET",
+    url: `https://content.guardianapis.com/search?section=science&api-key=${apiKeys.guardianKey}`,
+    dataType: "json",
+    success: function (data) {
+      console.log(data.response.results[0]);
+      const title = data.response.results[0].webTitle;
+      const link = data.response.results[0].webUrl;
+      const date = formatDate(data.response.results[0].webPublicationDate);
+      const time = formatTime(
+        hours,
+        data.response.results[0].webPublicationDate
+      );
+      const author = "the guardian";
+      const imgSrc = "n/a";
+      const description = "article from the guardian";
+      const source = "the guardian";
+      // const author
+      const article = new Article(
+        idName,
+        title,
+        author,
+        link,
+        imgSrc,
+        description,
+        source,
+        date,
+        time,
+        category
+      );
+      articleData.push(article);
+    },
+    error: function (x, s, err) {
+      console.log(err);
+    },
+  });
+}
+
 function formatDate(date) {
   const month = months[new Date(date).getMonth()];
   const day = new Date(date).getDate();
@@ -163,7 +204,6 @@ function formatTime(hours, data) {
 // adding active class to links
 function toggleActiveLink() {
   $(".nav__link").on("click", (e) => {
-    e.preventDefault();
     const isLink = $(e.currentTarget).hasClass("nav__link");
     if (isLink) {
       $(".nav-link").removeClass("active-class");
@@ -271,7 +311,7 @@ function renderHighlightedArticles(name) {
 function renderQuote(data) {
   $(".highlight__quote").html(`
     <p class="quote-desc">${data.content}</p>
-    <h4 class="quote-author">${data.author}</h4>
+    <h4 class="quote-author">- ${data.author}</h4>
   `);
 }
 
