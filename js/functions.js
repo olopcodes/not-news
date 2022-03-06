@@ -158,12 +158,6 @@ function formatTime(hours, data) {
   }
 }
 
-function renderHighlightedArticles(name) {
-  const filteredCategory = articleData.filter(
-    (article) => article.idName === name
-  );
-  console.log(filteredCategory);
-}
 // website functions =====================
 
 // adding active class to links
@@ -238,6 +232,40 @@ function renderLatestArticles() {
   });
 
   $(".latest__stories").html(html);
+}
+
+function renderHighlightedArticles(name) {
+  let html = ``;
+  let imgSrc = "";
+  const filteredCategory = articleData.filter(
+    (article) => article.idName === name
+  );
+
+  $.each(filteredCategory, (index, article) => {
+    if (!article.imgSrc) {
+      imgSrc = "./images/default-image.jpeg";
+    } else {
+      imgSrc = article.imgSrc;
+    }
+    html += `
+     <li class="highlight__article">
+     <a class="article-title article-title-link"
+       hre="${article.link}">${article.title}</a
+     >
+     <img
+       class="highlight__img"
+       src="${imgSrc}"
+       alt="article image"
+     />
+   </li>
+     `;
+  });
+
+  if (name === "general-article") {
+    $("#general-article-container").html(html);
+  } else {
+    $("#highlight-article-container").html(html);
+  }
 }
 
 // show main description paragraph when main hero article hover

@@ -1,7 +1,23 @@
+#tabs-2 {
+  display: none;
+}
+
 .highlight {
   padding-top: 0 !important;
+
+  .container {
+    display: flex;
+    gap: 2em;
+  }
+
   &__content {
     // border: 1px solid;
+    padding: 1.5em;
+    flex: 1;
+
+    @include mq($media-tab-land) {
+      flex: 35%;
+    }
   }
 
   &__tabs {
@@ -11,8 +27,7 @@
     width: 100%;
     text-transform: capitalize;
     font-family: $font-heading;
-    padding: 1em;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
     // background-color: orange;
   }
 
@@ -28,13 +43,10 @@
     }
   }
 
-  &__articles {
-    // border: 1px solid;
-  }
-
   &__article {
     display: flex;
     align-items: flex-start;
+    justify-content: space-around;
     gap: 1em;
     &:not(:last-of-type) {
       margin-bottom: 2em;
@@ -46,11 +58,32 @@
   &__article .article-title {
     &:hover {
       text-decoration: underline;
+      cursor: pointer;
     }
   }
 
   &__img {
-    width: 5rem;
-    height: 5rem;
+    display: none;
+    margin-bottom: 1.5em;
+    @include mq($media-tab) {
+      display: block;
+      width: 4.5rem;
+      height: 4.5rem;
+    }
+
+    @include mq($media-tab-land) {
+      width: 6rem;
+      height: 6rem;
+    }
+  }
+
+  &__quote {
+    // width: 50%;
+    flex: 1;
+    background-color: black;
+
+    @include mq($media-tab-land) {
+      flex: 60%;
+    }
   }
 }

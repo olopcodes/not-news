@@ -29,8 +29,6 @@ $(document).ready(async () => {
   await getArticle("highlight-article", "entertainment", 8);
   await getArticle("highlight-article", "technology", 3);
   await getArticle("highlight-article", "science", 3);
-  await getArticle("highlight-article", "sports", 10);
-  await getArticle("highlight-article", "entertainment", 11);
 
   await getArticle("general-article", "general", 1);
   await getArticle("general-article", "general", 2);
@@ -38,8 +36,7 @@ $(document).ready(async () => {
   await getArticle("general-article", "general", 5);
   await getArticle("general-article", "general", 7);
   await getArticle("general-article", "general", 13);
-  await getArticle("general-article", "general", 8);
-  await getArticle("general-article", "general", 15);
+
   renderHighlightedArticles("general-article");
   renderHighlightedArticles("highlight-article");
 

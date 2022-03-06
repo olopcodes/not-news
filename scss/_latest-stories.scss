@@ -13,7 +13,7 @@
   &__story {
     // background-color: rgba($color-white, 15%);
     // padding: 1em 0;
-    @include mq($media-tab-land) {
+    @include mq($media-tab) {
       width: 25%;
     }
   }
