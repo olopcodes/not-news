@@ -91,21 +91,8 @@ async function getArticle(idName, category, index) {
     url: `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${apiKeys.newsApi}`,
     dataType: "json",
     success: function (data) {
-      let imgSrc = "";
-      let author = "";
-      // console.log(data.articles[0]);
+      console.log(data.articles[0]);
 
-      try {
-        data.articles[i].urlToImage;
-      } catch (err) {
-        imgSrc = "./images/default-image.jpeg";
-      }
-
-      try {
-        data.articles[i].author;
-      } catch (err) {
-        author = "unknown author";
-      }
       const title = data.articles[i].title;
       author = data.articles[i].author;
       const link = data.articles[i].url;
@@ -136,23 +123,27 @@ async function getArticle(idName, category, index) {
 }
 
 // getting news for specific categories in guardian api
-async function getCategoryArticle(idName, category, index) {
+async function getGuardianArticle(idName, category, index, img) {
+  // technology
+  // science
+  // culture
+  // business
   let i = index - 1;
   await $.ajax({
     method: "GET",
-    url: `https://content.guardianapis.com/search?section=science&api-key=${apiKeys.guardianKey}`,
+    url: `https://content.guardianapis.com/search?section=${category}&api-key=${apiKeys.guardianKey}`,
     dataType: "json",
     success: function (data) {
-      console.log(data.response.results[0]);
-      const title = data.response.results[0].webTitle;
-      const link = data.response.results[0].webUrl;
-      const date = formatDate(data.response.results[0].webPublicationDate);
+      // console.log(data.response.results[i]);
+      const title = data.response.results[i].webTitle;
+      const link = data.response.results[i].webUrl;
+      const date = formatDate(data.response.results[i].webPublicationDate);
       const time = formatTime(
         hours,
         data.response.results[0].webPublicationDate
       );
-      const author = "the guardian";
-      const imgSrc = "n/a";
+      const author = "The Guardian Author";
+      const imgSrc = `./images/default-image-${img}.jpeg`;
       const description = "article from the guardian";
       const source = "the guardian";
       // const author
@@ -220,15 +211,43 @@ function toggleMobileMenu() {
 }
 
 // render the main hero articles on the page
+function checkIncompleteImg(data) {
+  if (!data.imgSrc) {
+    return "./images/default-image.jpeg";
+  } else {
+    return data.imgSrc;
+  }
+}
+
+function checkIncompleteAuthor(data) {
+  if (!data.author) {
+    return "Unknown Author";
+  } else {
+    return data.author;
+  }
+}
+
+function checkIncompleteDescription(data) {
+  if (!data.description) {
+    return "The source provided no description, please click link for more information.";
+  } else {
+    return data.description;
+  }
+}
+
 function renderMainArticle(articleID) {
   for (let a of articleData) {
     if (a.idName === articleID) {
       $(`#${articleID}`).html(`
         
-        <img src="${a.imgSrc}" alt="the image to the article below" class="hero-main__img">
+        <img src="${checkIncompleteImg(
+          a
+        )}" alt="the image to the article below" class="hero-main__img">
         <div class="hero-main__text">
-          <a href="${a.link}" target="_blank"><h2 class="main-link">${a.title}</h2></a>
-          <p class="main-desc">${a.description}</p>
+          <a href="${a.link}" target="_blank"><h2 class="main-link">${
+        a.title
+      }</h2></a>
+          <p class="main-desc">${checkIncompleteDescription(a)}</p>
         </div>
         `);
     }
@@ -280,13 +299,10 @@ function renderHighlightedArticles(name) {
   const filteredCategory = articleData.filter(
     (article) => article.idName === name
   );
-
+  // console.log(name, "input from app");
   $.each(filteredCategory, (index, article) => {
-    if (!article.imgSrc) {
-      imgSrc = "./images/default-image.jpeg";
-    } else {
-      imgSrc = article.imgSrc;
-    }
+    if (!article.imgSrc) article.imgSrc = "./images/default-image.jpeg";
+
     html += `
      <li class="highlight__article">
      <a class="article-title article-title-link"
@@ -294,7 +310,7 @@ function renderHighlightedArticles(name) {
      >
      <img
        class="highlight__img"
-       src="${imgSrc}"
+       src="${article.imgSrc}"
        alt="article image"
      />
    </li>
