@@ -167,6 +167,42 @@ async function getGuardianArticle(idName, category, index, img) {
   });
 }
 
+async function getNewsArticle(idName, category, index) {
+  let i = index - 1;
+  await $.ajax({
+    method: "GET",
+    url: `https://api.thenewsapi.com/v1/news/all?api_token=${apiKeys.theNewsKey}&language=en&categories=${category}`,
+    dataType: "json",
+    success: function (data) {
+      // console.log(data.data[i]);
+      const title = data.data[i].title;
+      const author = data.data[i].source;
+      const link = data.data[i].url;
+      const imgSrc = data.data[i].image_url;
+      const description = data.data[i].description;
+      const source = data.data[i].source;
+      const date = formatDate(data.data[i].published_at);
+      const time = formatTime(hours, data.data[i].published_at);
+      const article = new Article(
+        idName,
+        title,
+        author,
+        link,
+        imgSrc,
+        description,
+        source,
+        date,
+        time,
+        category
+      );
+      articleData.push(article);
+    },
+    error: function (x, s, err) {
+      console.log(err);
+    },
+  });
+}
+
 function formatDate(date) {
   const month = months[new Date(date).getMonth()];
   const day = new Date(date).getDate();
@@ -235,6 +271,7 @@ function checkIncompleteDescription(data) {
   }
 }
 
+// render pages on the page functions ===========================
 function renderMainArticle(articleID) {
   for (let a of articleData) {
     if (a.idName === articleID) {
@@ -331,6 +368,31 @@ function renderQuote(data) {
   `);
 }
 
+function renderCategoryArticles(name) {
+  const filteredCategory = articleData.filter(
+    (article) => article.idName === name
+  );
+  let html = ``;
+  $.each(filteredCategory, (index, article) => {
+    html += `
+    <a class="category__story" href="${article.link}">
+    <div class="category__story-img-box">
+      <img
+        src="${article.imgSrc}"
+        alt="article image"
+      />
+    </div>
+
+    <h3 class="article-title">
+      ${article.title}
+    </h3>
+  </a>
+    `;
+  });
+
+  $(`#${name} .category__stories`).html(html);
+}
+
 // show main description paragraph when main hero article hover
 function showMainDescription() {
   $(".hero-main__item").hover(
@@ -346,4 +408,16 @@ function showMainDescription() {
 // remove preloader
 function removePreLoader() {
   $(".preloader").css("display", "none");
+}
+
+// tabs component
+function tabComponent() {
+  $(".highlight__tabs").on("click", (e) => {
+    if (e.target.classList.contains("highlight-tab")) {
+      $("#tabs").tabs();
+      $(".highlight-tab").removeClass("highlight-tab-active");
+      // using e.target because e.currentTarget from jquery returns the parent, not the element
+      e.target.classList.add("highlight-tab-active");
+    }
+  });
 }

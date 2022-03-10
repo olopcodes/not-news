@@ -1,4 +1,5 @@
 .category {
+  background-color: $color-grey;
   &__stories {
     margin-top: 4em;
     @include mq($media-min) {

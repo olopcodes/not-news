@@ -1,5 +1,5 @@
 $(document).ready(async () => {
-  const removeLoader = setTimeout(removePreLoader, `1500`);
+  const removeLoader = setTimeout(removePreLoader, `1575`);
 
   await getLocation();
   await getRandomFact();
@@ -16,45 +16,63 @@ $(document).ready(async () => {
   showMainDescription();
 
   // fetching the latest stories
-  // await getArticle("latest-article-1", "technology", 1);
-  // await getArticle("latest-article-2", "science", 1);
-  // await getArticle("latest-article-3", "sports", 1);
-  // await getArticle("latest-article-4", "entertainment", 1);
+  await getArticle("latest-article-1", "technology", 1);
+  await getArticle("latest-article-2", "science", 1);
+  await getArticle("latest-article-3", "sports", 1);
+  await getArticle("latest-article-4", "entertainment", 1);
 
-  // getting articles for the highlight section
-  // await getArticle("latest-article-1", "technology", 1);
-  // await getGuardianArticle('latest-article-2', 'science',1, 3);
-  // await getArticle("latest-article-3", "sports", 1);
-  // await getGuardianArticle('latest-article-4', 'culture',1, 2);
   // rendering the latest articles
   renderLatestArticles();
 
   // getting articles for the highlight section
-  // await getArticle("highlight-article", "technology", 5);
-  await getGuardianArticle("highlight-article", "science", 3, 1);
 
-  // await getArticle("highlight-article", "sports", 9);
-  // await getGuardianArticle('highlight-article', 'culture',3, 2);
+  // await getNewsArticle("highlight-article", "entertainment", 1);
+  await getGuardianArticle("highlight-article", "culture", 1, 1);
+  await getGuardianArticle("highlight-article", "science", 1, 3);
+  await getGuardianArticle("highlight-article", "technology", 1, 2);
+  await getGuardianArticle("highlight-article", "business", 1, 3);
+  await getGuardianArticle("highlight-article", "sport", 1, 1);
 
-  // await getArticle("highlight-article", "technology", 3);
-  // await getArticle("highlight-article", "science", 3);
-  // await getGuardianArticle('highlight-article', 'culture',3, 1);
-  // await getGuardianArticle('highlight-article', 'culture',3, 1);
-
-  // await getArticle("general-article", "general", 1);
-  // await getArticle("general-article", "general", 2);
-  // await getArticle("general-article", "general", 3);
-  // await getArticle("general-article", "general", 5);
-  // await getArticle("general-article", "general", 7);
-  // await getArticle("general-article", "general", 13);
+  await getGuardianArticle("general-article", "business", 5, 3);
+  await getGuardianArticle("general-article", "business", 3, 2);
+  await getGuardianArticle("general-article", "business", 2, 1);
+  await getGuardianArticle("general-article", "business", 1, 2);
+  await getGuardianArticle("general-article", "business", 4, 3);
 
   // render highlight images
-  // renderHighlightedArticles("general-article");
+  renderHighlightedArticles("general-article");
   renderHighlightedArticles("highlight-article");
 
   // get and render quote to html
   await getRandomWisdomQuote();
 
   // jquery tabs for highlight
-  // jqueryTabs();
+  tabComponent();
+
+  // category articles
+  // await getGuardianArticle("category-entertainment", "culture", 5, 3);
+  await getNewsArticle("category-entertainment", "entertainment", 4);
+  await getGuardianArticle("category-entertainment", "culture", 3, 2);
+  await getGuardianArticle("category-entertainment", "culture", 2, 1);
+  await getGuardianArticle("category-entertainment", "culture", 1, 3);
+
+  await getNewsArticle("category-technology", "tech", 4);
+  await getGuardianArticle("category-technology", "technology", 3, 2);
+  await getGuardianArticle("category-technology", "technology", 2, 1);
+  await getGuardianArticle("category-technology", "technology", 1, 3);
+
+  await getNewsArticle("category-sports", "sports", 5);
+  await getGuardianArticle("category-sports", "sport", 3, 1);
+  await getGuardianArticle("category-sports", "sport", 2, 3);
+  await getGuardianArticle("category-sports", "sport", 1, 2);
+
+  await getNewsArticle("category-science", "science", 4);
+  await getGuardianArticle("category-science", "science", 3, 3);
+  await getGuardianArticle("category-science", "science", 2, 2);
+  await getGuardianArticle("category-science", "science", 1, 1);
+
+  renderCategoryArticles("category-entertainment");
+  renderCategoryArticles("category-technology");
+  renderCategoryArticles("category-sports");
+  renderCategoryArticles("category-science");
 });
