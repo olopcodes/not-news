@@ -1,5 +1,8 @@
 .category {
-  background-color: $color-grey;
+  background-color: $color-white;
+  &:not(:last-child) {
+    padding-bottom: 0 !important;
+  }
   &__stories {
     margin-top: 4em;
     @include mq($media-min) {

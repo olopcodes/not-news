@@ -76,18 +76,24 @@
 }
 
 .highlight-tab {
-  color: black;
+  color: $color-grey;
   font-weight: 700;
   padding: 0.5rem 0.8rem;
   border-radius: 0.3rem;
   &:hover,
-  &:active {
-    color: $color-cta;
+  &:active,
+  &:focus {
+    color: $color-white;
   }
 
   &-active {
     background-color: $color-secondary;
-    color: $color-cta;
+    color: $color-black;
+    &:hover,
+    &:active,
+    &:focus {
+      color: $color-black;
+    }
   }
 }
 

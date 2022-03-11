@@ -16,10 +16,10 @@ $(document).ready(async () => {
   showMainDescription();
 
   // fetching the latest stories
-  await getArticle("latest-article-1", "technology", 1);
-  await getArticle("latest-article-2", "science", 1);
-  await getArticle("latest-article-3", "sports", 1);
-  await getArticle("latest-article-4", "entertainment", 1);
+  // await getArticle("latest-article-1", "technology", 1);
+  // await getArticle("latest-article-2", "science", 1);
+  // await getArticle("latest-article-3", "sports", 1);
+  // await getArticle("latest-article-4", "entertainment", 1);
 
   // rendering the latest articles
   renderLatestArticles();
@@ -50,23 +50,24 @@ $(document).ready(async () => {
   tabComponent();
 
   // category articles
-  // await getGuardianArticle("category-entertainment", "culture", 5, 3);
-  await getNewsArticle("category-entertainment", "entertainment", 4);
+  await getGuardianArticle("category-entertainment", "culture", 4, 1);
   await getGuardianArticle("category-entertainment", "culture", 3, 2);
   await getGuardianArticle("category-entertainment", "culture", 2, 1);
   await getGuardianArticle("category-entertainment", "culture", 1, 3);
 
-  await getNewsArticle("category-technology", "tech", 4);
+  // await getNewsArticle("category-technology", "tech", 4);
+  await getGuardianArticle("category-technology", "technology", 4, 3);
   await getGuardianArticle("category-technology", "technology", 3, 2);
   await getGuardianArticle("category-technology", "technology", 2, 1);
   await getGuardianArticle("category-technology", "technology", 1, 3);
 
-  await getNewsArticle("category-sports", "sports", 5);
+  await getGuardianArticle("category-sports", "sport", 4, 2);
   await getGuardianArticle("category-sports", "sport", 3, 1);
   await getGuardianArticle("category-sports", "sport", 2, 3);
   await getGuardianArticle("category-sports", "sport", 1, 2);
 
-  await getNewsArticle("category-science", "science", 4);
+  // await getNewsArticle("category-science", "science", 5);
+  await getGuardianArticle("category-science", "science", 4, 1);
   await getGuardianArticle("category-science", "science", 3, 3);
   await getGuardianArticle("category-science", "science", 2, 2);
   await getGuardianArticle("category-science", "science", 1, 1);
