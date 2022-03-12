@@ -16,10 +16,10 @@ $(document).ready(async () => {
   showMainDescription();
 
   // fetching the latest stories
-  // await getArticle("latest-article-1", "technology", 1);
-  // await getArticle("latest-article-2", "science", 1);
-  // await getArticle("latest-article-3", "sports", 1);
-  // await getArticle("latest-article-4", "entertainment", 1);
+  await getArticle("latest-article-1", "technology", 1);
+  await getArticle("latest-article-2", "science", 1);
+  await getArticle("latest-article-3", "sports", 1);
+  await getArticle("latest-article-4", "entertainment", 1);
 
   // rendering the latest articles
   renderLatestArticles();
