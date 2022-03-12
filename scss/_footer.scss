@@ -1,15 +1,32 @@
 .footer {
   background-color: $color-black;
-  padding: 5em 0 2em;
+  padding: 5em 0 1em;
   color: $color-grey;
 
+  .container {
+    margin-bottom: 4em;
+    @include mq($media-min) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    @include mq($media-tab-land) {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+  }
+
   &__logo {
-    border: 1px solid;
-    text-align: center;
     .logo {
       font-size: $font-size-medium;
       margin-bottom: 0.5em;
       display: inline-block;
+      @include mq($media-min) {
+        text-align: center;
+      }
     }
   }
 
@@ -17,11 +34,14 @@
     display: flex;
     gap: 1em;
     align-items: center;
-    justify-content: center;
+    margin-bottom: 1.5em;
+    @include mq($media-min) {
+      justify-content: center;
+    }
   }
 
-  &__link {
-    background-color: $color-white;
+  &__social {
+    background-color: $color-secondary;
     color: $color-black;
     border-color: $color-white;
     display: grid;
@@ -37,5 +57,58 @@
       background-color: $color-black;
       color: $color-grey;
     }
+  }
+
+  &__links {
+    display: flex;
+    text-transform: capitalize;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 1.5em;
+    @include mq($media-min) {
+      justify-content: center;
+      align-items: center;
+    }
+
+    @include mq($media-tab-land) {
+      align-items: flex-start;
+    }
+  }
+
+  &__links p {
+    font-size: $font-size-avg;
+    color: $color-secondary;
+    display: inline-block;
+    // border-bottom: 1px solid $color-secondary;
+    margin-bottom: 0.5em;
+  }
+
+  &__link {
+    color: $color-grey;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $color-secondary;
+    }
+  }
+
+  &__subscribe p {
+    font-size: $font-size-small;
+    margin-bottom: 0.5em;
+  }
+
+  &__subscribe input {
+    padding: 0.7em;
+    border-radius: 0.3em;
+    color: $color-cta;
+    font-weight: bold;
+    margin-bottom: 0.3em;
+  }
+
+  .copy {
+    font-size: $font-size-small;
+    text-align: center;
   }
 }

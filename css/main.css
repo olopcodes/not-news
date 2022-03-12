@@ -618,22 +618,38 @@ section {
 
 .footer {
   background-color: #1f271b;
-  padding: 5em 0 2em;
+  padding: 5em 0 1em;
   color: #cccdc6; }
-  .footer__logo {
-    border: 1px solid;
-    text-align: center; }
-    .footer__logo .logo {
-      font-size: 1.5rem;
-      margin-bottom: 0.5em;
-      display: inline-block; }
+  .footer .container {
+    margin-bottom: 4em; }
+    @media screen and (min-width: 31.25em) {
+      .footer .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column; } }
+    @media screen and (min-width: 60em) {
+      .footer .container {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between; } }
+  .footer__logo .logo {
+    font-size: 1.5rem;
+    margin-bottom: 0.5em;
+    display: inline-block; }
+    @media screen and (min-width: 31.25em) {
+      .footer__logo .logo {
+        text-align: center; } }
   .footer__socials {
     display: flex;
     gap: 1em;
     align-items: center;
-    justify-content: center; }
-  .footer__link {
-    background-color: #fafffa;
+    margin-bottom: 1.5em; }
+    @media screen and (min-width: 31.25em) {
+      .footer__socials {
+        justify-content: center; } }
+  .footer__social {
+    background-color: #cba328;
     color: #1f271b;
     border-color: #fafffa;
     display: grid;
@@ -642,6 +658,41 @@ section {
     border-radius: 50%;
     height: 2rem;
     width: 2rem; }
-    .footer__link:hover, .footer__link:active, .footer__link:focus {
+    .footer__social:hover, .footer__social:active, .footer__social:focus {
       background-color: #1f271b;
       color: #cccdc6; }
+  .footer__links {
+    display: flex;
+    text-transform: capitalize;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-bottom: 1.5em; }
+    @media screen and (min-width: 31.25em) {
+      .footer__links {
+        justify-content: center;
+        align-items: center; } }
+    @media screen and (min-width: 60em) {
+      .footer__links {
+        align-items: flex-start; } }
+  .footer__links p {
+    font-size: 1.25rem;
+    color: #cba328;
+    display: inline-block;
+    margin-bottom: 0.5em; }
+  .footer__link {
+    color: #cccdc6; }
+    .footer__link:hover, .footer__link:active, .footer__link:focus {
+      color: #cba328; }
+  .footer__subscribe p {
+    font-size: 0.85rem;
+    margin-bottom: 0.5em; }
+  .footer__subscribe input {
+    padding: 0.7em;
+    border-radius: 0.3em;
+    color: #8a4fff;
+    font-weight: bold;
+    margin-bottom: 0.3em; }
+  .footer .copy {
+    font-size: 0.85rem;
+    text-align: center; }
